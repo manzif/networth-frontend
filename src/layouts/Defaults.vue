@@ -1,13 +1,13 @@
 <template>
   <v-app>
-    <v-main :is="layout">
+    <NavBar />
+    <v-main class="grey lighten-4 mx-4 mb-4">
       <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-const default_layout = "default"
 import NavBar from '@/components/NavBar'
 export default {
   name: 'App',
@@ -17,10 +17,5 @@ export default {
   data: () => ({
     //
   }),
-  computed: {
-    layout() {
-      return (this.$route.meta.layout || default_layout) + '-layout'
-    }
-  }
 };
 </script>
