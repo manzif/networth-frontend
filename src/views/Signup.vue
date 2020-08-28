@@ -71,7 +71,8 @@
             sm="12"
             class="mt-10"
           >
-            <v-row align="center" justify="center">
+            <v-row align="center" 
+              justify="center">
               <v-col
                 cols="8"
                 md="8"

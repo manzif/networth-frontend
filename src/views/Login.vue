@@ -73,13 +73,11 @@
                 </v-card-text>
                 <v-card-actions class="px-0">
                   <v-btn
-                    :loading="isLoading"
-                    :disabled="isDisabled"
                     large
                     block
                     color="primary mb-1"
                     class="text-lowercase"
-                    @click="login"
+                    @click="loginUser"
                   >
                     Login
                   </v-btn>
@@ -134,9 +132,35 @@
   </div>
 </template>
 <script>
-// import finance from ''
+import { mapActions } from 'vuex'
 export default {
-    
+    data(){
+      return {
+        email : '',
+        password : '',
+        showPassword: false,
+        emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /.+@.+/.test(v) || 'E-mail must be valid'
+        ],
+        passwordRules: [(v) => !!v || 'Password is required']
+      }
+    },
+    methods: {
+     ...mapActions(['login']), 
+    async loginUser() {
+      try {
+        await this.$store.dispatch('login', {
+          email: this.email,
+          password: this.password
+        })
+        this.email = null
+        this.password = null
+      } catch (e) {
+        return e
+      }
+    }
+    }
 }
 </script>
 <style scoped>
