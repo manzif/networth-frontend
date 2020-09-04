@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <v-item-group active-class="secondary">
-      <div class="mx-md-12">
-        <v-row>
+  <v-container fluid>
+    <div class="mx-12">
+        <v-row align="center">
           <v-col
             cols="12"
             md="6"
             sm="12"
-            class="mt-10 mb-2"
+            class="mb-2"
           >
             <div
               id="signup"
@@ -25,21 +24,18 @@
             cols="12"
             md="6"
             sm="12"
-            class="mt-10"
+            class=""
           >
-            <v-row
-              justify="center"
-              align="center"
-            >
-              <v-col
-                cols="10"
-                md="8"
-                sm="6"
-                class="mt-4"
-              >
                 <v-layout>
                   <div class="mb-3 text-center">
                     <h2>Login</h2>
+                  </div>
+                </v-layout>
+                <v-layout v-if="errorMessage">
+                  <div class="mb-3 text-center">
+                    <v-card class="pa-2">
+                     <h4 class="red--text">{{ errorMessage }}</h4>
+                    </v-card>
                   </div>
                 </v-layout>
                 <v-card-text class="px-0">
@@ -123,16 +119,13 @@
                     </v-icon>
                   </v-btn>
                 </div>
-              </v-col>
-            </v-row>
           </v-col>
         </v-row>
       </div>
-    </v-item-group>
-  </div>
+  </v-container>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
     data(){
       return {
@@ -145,6 +138,9 @@ export default {
         ],
         passwordRules: [(v) => !!v || 'Password is required']
       }
+    },
+    computed: {
+      ...mapGetters(['errorMessage'])
     },
     methods: {
      ...mapActions(['login']), 
@@ -171,7 +167,7 @@ export default {
 }
 @media (max-width: 600px) {
   #signup {
-    height: 300px;
+    /* height: 300px; */
   }
 }
 </style>

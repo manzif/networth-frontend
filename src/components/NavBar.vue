@@ -43,6 +43,7 @@
       <v-btn
         text
         color="grey"
+        @click="logout"
       >
         <span>Sign-out</span>
         <v-icon right>
@@ -68,7 +69,7 @@
             >
           </v-avatar>
           <p class="grey--text subheading mt-1">
-            Leo Messi
+            {{ loggedInUser.email }}
           </p>
         </v-flex>
         <v-flex class="mt-4 mb-3">
@@ -93,6 +94,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import Popup from './Popup'
 export default {
     name: 'Navbar',
@@ -108,7 +110,12 @@ export default {
             ],
             mini: true,
         }
-    }
+    },
+    computed: mapGetters(['loggedInUser']),
+    created() {
+    console.log('\n\n\n\n\n', 'turahari')
+  },
+    methods:  mapActions(['logout'])
 
 }
 </script>

@@ -22,13 +22,17 @@ const mutations = {
 const actions = {
     logout: ({commit}) => {
         commit('SET_TOKEN', null)
+        localStorage.setItem('token', null)
+        router.push('/login')
     },
     async login({ commit }, { email, password }) {
         try {
             const { data } = await axios.post('http://localhost:3000/api/users/login', { email, password })
             commit('SET_TOKEN', data.token)
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('user', data.user)
+            console.log(data.user)
             commit('GET_USER', data.user)
-            console.log('\n\n\n\n\n', data.user)
             router.push('/')
         } catch (error) {
             commit('GET_ERROR_MESSAGE', error.response.data.message)
@@ -39,6 +43,12 @@ const actions = {
 const getters = {
     isLoggedIn (state) {
         return !!state.token
+    },
+    errorMessage (state) {
+        return state.errorMessage
+    },
+    loggedInUser (state) {
+        return state.loggedInUser
     }
 }
 
