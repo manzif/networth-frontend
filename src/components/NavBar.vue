@@ -113,7 +113,6 @@ export default {
     },
     computed: mapGetters(['loggedInUser']),
     created() {
-    console.log('\n\n\n\n\n', 'turahari')
   },
     methods:  mapActions(['logout'])
 

@@ -31,7 +31,6 @@ const actions = {
             commit('SET_TOKEN', data.token)
             localStorage.setItem('token', data.token)
             localStorage.setItem('user', data.user)
-            console.log(data.user)
             commit('GET_USER', data.user)
             router.push('/')
         } catch (error) {
