@@ -8,7 +8,6 @@ import Table from './views/Table'
 import Test from './views/Test'
 import Signup from './views/Signup'
 import Login from './views/Login'
-import test1 from './views/test1'
 import store from './store/modules/auth'
 import router from '@/router.js'
 
@@ -38,7 +37,6 @@ export default new Router({
     { path: '/table', name: 'table', component: Table, beforeEnter: multiguard([guard1]) },
     { path: '/test', name: 'test', component: Test, beforeEnter: multiguard([guard1]) },
     { path: '/signup', name: 'signup', meta: {layout: 'no-sidebar'}, component: Signup },
-    { path: '/login', name: 'login', meta: {layout: 'no-sidebar'}, component: Login },
-    { path: '/test1', name: 'test', meta: { layout: 'no-sidebar' }, component: test1 }               
+    { path: '/login', name: 'login', meta: {layout: 'no-sidebar'}, component: Login }             
   ]
 })

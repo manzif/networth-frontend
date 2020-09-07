@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <v-item-group active-class="secondary">
-      <div class="mx-md-12">
-        <v-row>
+  <v-container fluid>
+    <div class="mx-12">
+        <v-row align="center" justify="center">
           <v-col
             cols="12"
             md="6"
             sm="12"
-            class="mt-10 mb-2"
-            align-self="center"
           >
-            <div class="create-center mb-1">
               <v-list-item-content class="pb-0 mb-3">
                 <h2 class="mb-5">
                   Welcome to Networth
@@ -63,29 +59,19 @@
                   </v-icon>
                 </v-btn>
               </div>
-            </div>
           </v-col>
           <v-col
             cols="12"
             md="6"
             sm="12"
-            class="mt-10"
           >
-            <v-row
-              align="center" 
-              justify="center"
-            >
-              <v-col
-                cols="8"
-                md="8"
-                sm="8"
-                class="mt-10 mb-2"
-              >
-                <v-layout py-3>
-                  <div class="text-center">
+                <v-layout>
+                  <div>
                     <h2>Create Account</h2>
                   </div>
                 </v-layout>
+                <div class="line" />
+                <div class="mb-3"></div>
                 <v-card-text class="px-0">
                   <v-form :lazy-validation="true">
                     <v-text-field
@@ -139,13 +125,10 @@
                     Signup
                   </v-btn>
                 </v-card-actions>
-              </v-col>
-            </v-row>
           </v-col>
         </v-row>
       </div>
-    </v-item-group>
-  </div>
+  </v-container>
 </template>
 <script>
 // import finance from ''
@@ -154,9 +137,10 @@ export default {
 }
 </script>
 <style scoped>
-#signup {
-    background-color: #0087ff;
-    height: 100vh;
+.line {
+  width: 63px;
+  border-bottom: 5px solid #008000;
+  position: absolute;
 }
 .create-center {
   text-align: center;

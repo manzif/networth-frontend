@@ -1,17 +1,20 @@
 <template>
   <v-container fluid>
     <div class="mx-12">
-        <v-row align="center">
+        <v-row align="center" justify="center">
           <v-col
             cols="12"
             md="6"
             sm="12"
             class="mb-2"
           >
-            <div
-              id="signup"
-              class="pb-0"
-            />
+          <v-layout align-center justify-center>
+          <v-flex xs12 sm8 md10>
+            <v-img
+                  :src="myImage"
+                  aspect-ratio="1"
+            >
+            </v-img>
             <div class="text-center">
               <router-link
                 to="/signup"
@@ -19,6 +22,8 @@
                 Create an account
               </router-link>
             </div>
+          </v-flex>
+          </v-layout>
           </v-col>
           <v-col
             cols="12"
@@ -27,10 +32,12 @@
             class=""
           >
                 <v-layout>
-                  <div class="mb-3 text-center">
+                  <div class="text-center">
                     <h2>Login</h2>
                   </div>
                 </v-layout>
+                <div class="line" />
+                <div class="mb-3"></div>
                 <v-layout v-if="errorMessage">
                   <div class="mb-3 text-center">
                     <v-card class="pa-2">
@@ -132,6 +139,7 @@ export default {
         email : '',
         password : '',
         showPassword: false,
+        myImage: require('../assets/finance.png'),
         emailRules: [
         (v) => !!v || 'E-mail is required',
         (v) => /.+@.+/.test(v) || 'E-mail must be valid'
@@ -164,6 +172,11 @@ export default {
     background-image: url('../assets/finance.png') !important;
     background-size: 100%;
     height: 400px;
+}
+.line {
+  width: 63px;
+  border-bottom: 5px solid #008000;
+  position: absolute;
 }
 @media (max-width: 600px) {
   #signup {
